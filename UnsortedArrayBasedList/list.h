@@ -3,7 +3,7 @@ using namespace std;
 template<typename T>
 class list {
 	T* data;
-	int size, n;
+	int size, n, it;
 	int find_idx(const T& val) const {
 		for (int i = 0;i <= n;i++) {
 			if (val == data[i])
@@ -16,6 +16,7 @@ public:
 		size = s;
 		data = new T[size];
 		n = -1;
+		it = -1;
 	}
 	~list() {
 		delete[]data;
@@ -58,5 +59,18 @@ public:
 	}
 	int length()const {
 		return n + 1;
+	}
+	void reset() {
+		it = -1;
+	}
+	bool is_last() const {
+		return it == n;
+	}
+	T get_next() {
+		if (is_last()) {
+			throw("Last Element Reached");
+		}
+		it++;
+		return data[it];
 	}
 };
