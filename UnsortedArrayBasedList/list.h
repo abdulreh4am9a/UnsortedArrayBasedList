@@ -73,4 +73,23 @@ public:
 		it++;
 		return data[it];
 	}
+	void operator=(const list<T>& rhs) {
+		delete[]data;
+		size = rhs.size;
+		data = new T[size];
+		n = rhs.n;
+		it = -1;
+		for (int i = 0;i < size;i++) {
+			data[i] = rhs.data[i];
+		}
+	}
+	list(const list<T>& rhs) {
+		size = rhs.size;
+		data = new T[size];
+		n = rhs.n;
+		it = -1;
+		for (int i = 0;i < size;i++) {
+			data[i] = rhs.data[i];
+		}
+	}
 };

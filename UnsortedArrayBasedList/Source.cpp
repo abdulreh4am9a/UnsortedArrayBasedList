@@ -6,13 +6,17 @@ int main() {
 	l.insert('C');
 	l.insert('D');
 	l.insert('E');
-	cout << l.find('E') << endl;
-	cout << l.update('E','G') << endl;
-	cout << l.length() << endl;
-	cout << l.erase('G') << endl;
-	cout << l.length() << endl;
-	cout << l.full() << endl;
-	cout << l.empty() << endl;
-	l.make_empty();
-	cout << l.empty() << endl;
+	list<char> l2(l);
+	l2.reset();
+	while (!l2.is_last()) {
+		cout << l2.get_next() << " ";
+	}
+	cout << endl;
+	list<char> l1;
+	l1 = l2;
+	l1.reset();
+	while (!l1.is_last()) {
+		cout << l1.get_next() << " ";
+	}
+	cout << endl;
 }
